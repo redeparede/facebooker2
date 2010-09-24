@@ -6,6 +6,10 @@ API, http://developers.facebook.com/docs/reference/javascript/.
 
 Requires the mogli gem.
 
+I18n & multi App Support
+========================
+Added multi domain/multi App support for facebooker.yml config file and added
+language option for fb_connect_async_js helper method.
 
 Example
 =======

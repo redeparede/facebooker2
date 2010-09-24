@@ -1,5 +1,11 @@
 require "spec_helper"
 
+class ActionController::Base
+  def self.top_level_domain
+    return 'de'
+  end
+end
+
 class FakeController < ActionController::Base
   include Facebooker2::Rails::Controller
 end

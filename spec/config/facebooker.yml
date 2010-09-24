@@ -1,3 +1,8 @@
 spec:
-  app_id: 1234fromyaml
-  secret: fromyaml
+  de:
+    app_id: 1234fromyaml
+    secret: fromyaml
+  en:  
+    app_id: 1234fromyaml_en
+    secret: fromyaml_en
+  

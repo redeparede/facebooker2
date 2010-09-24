@@ -16,6 +16,7 @@ module Facebooker2
           cookie = opts[:cookie]
           status = opts[:status]
           xfbml = opts[:xfbml]
+          language = opts[:language] || 'en_US'
           extra_js = capture(&proc) if block_given?
           js = <<-JAVASCRIPT
           <script>
@@ -34,7 +35,7 @@ module Facebooker2
               s.setAttribute('id','fb-root'); 
               document.documentElement.getElementsByTagName("body")[0].appendChild(s);
               var e = document.createElement('script');
-              e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+              e.src = document.location.protocol + '//connect.facebook.net/#{language}/all.js';
               e.async = true;
               s.appendChild(e);
             }());

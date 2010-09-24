@@ -2,6 +2,18 @@ require "spec_helper"
 describe Facebooker2 do
   
   describe "Configuration" do
+    it "should get configuration depending on tld" do
+      Facebooker2.tld = 'en'
+      Facebooker2.api_key = "123456_en"
+      Facebooker2.tld = 'de'
+      Facebooker2.api_key = "123456_de"
+
+      Facebooker2.tld = 'en'
+      Facebooker2.api_key.should == "123456_en"
+      Facebooker2.tld = 'de'
+      Facebooker2.api_key.should == "123456_de"
+    end
+    
     it "allows setting of the api_key" do
       Facebooker2.api_key = "123456"
       Facebooker2.api_key.should == "123456"
@@ -21,7 +33,6 @@ describe Facebooker2 do
       Facebooker2.configuration = {:app_id=>1234,:secret=>"secret"}
       Facebooker2.app_id.should == 1234
       Facebooker2.secret.should == "secret"
-      
     end
     
     it "raises an exception if you access a nil app_id" do
