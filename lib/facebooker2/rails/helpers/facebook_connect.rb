@@ -36,7 +36,7 @@ module Facebooker2
         # Logs the user out of facebook and redirects to the given URL
         #  args are passed to the call to link_to_function
         def fb_logout_link(text,url,*args)
-          function= "FB.logout(function() {window.location.href = '#{url}';})"
+          function= "FB.logout(function() {FB.Cookie.clear(); window.location.href = '#{url}';})"
           link_to_function text, function, *args
         end
         

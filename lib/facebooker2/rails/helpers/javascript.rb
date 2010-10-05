@@ -17,7 +17,13 @@ module Facebooker2
           status = opts[:status]
           xfbml = opts[:xfbml]
           language = opts[:language] || 'en_US'
-          extra_js = capture(&proc) if block_given?
+          
+          if block_given?
+            extra_js = capture(&proc)
+          else
+            extra_js = opts[:extra_js]
+          end
+          
           js = <<-JAVASCRIPT
           <script>
             window.fbAsyncInit = function() {
