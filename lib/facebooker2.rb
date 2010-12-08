@@ -3,11 +3,13 @@ require "mogli"
 module Facebooker2
   class NotConfigured < Exception; end
   class << self
-    attr_accessor :api_key, :secret, :app_id, :configuration, :tld
+    attr_accessor :api_key, :secret, :app_id, :configuration, :tld, :default_tld, :tlds
   end
     
   def self.tld
     @tld || ApplicationController.top_level_domain.to_s
+    @tld = @default_tld if @tlds.exclude?(@tld)
+    @tld
   end
   
   def self.default_configuration
