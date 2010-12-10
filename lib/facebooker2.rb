@@ -7,7 +7,7 @@ module Facebooker2
   end
     
   def self.tld
-    @tld ||= ApplicationController.top_level_domain.to_s
+    @tld || ApplicationController.top_level_domain.to_s
   end
   
   def self.default_configuration
